@@ -1,5 +1,21 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+
+{{hbs-editor}}
+
+{{#x-foo name="parent"}}
+  Parent
+  <br>
+  <button {{action (mut showChild) true}}>Show Child</button>
+  <br>
+  <button {{action (mut showChild) false}}>Hide Child</button>
+  <br>
+  <br>
+{{input value=foo}}
+
+  {{#if showChild}}
+    {{#x-foo foo=foo name="child"}}
+      Child
+    {{/x-foo}}
+  {{/if}}
+{{/x-foo}}
 
 {{outlet}}
