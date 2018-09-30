@@ -8,7 +8,7 @@ Current event:
 <em>none</em>
 {{/if}}
 <br>
-<button {{action 'playOne'}}>Play 1</button>
+<button {{action 'playOne'}} disabled={{noMoreEvents}}>Play 1</button>
 <ul>
   {{#each components as as |component|}}
     <li>
