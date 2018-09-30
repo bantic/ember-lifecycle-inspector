@@ -1,0 +1,10 @@
+<h2>{{component.name}}</h2>
+<ul class="lifecycle-event-list">
+{{#each eventNames as |eventName|}}
+  <li class="
+    {{if (is-active-event @currentEvent component eventName) "is-active"}}
+    ">
+    {{eventName}}
+  </li>
+{{/each}}
+</ul>

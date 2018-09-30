@@ -9,17 +9,6 @@ let compileCount = 0;
 export default Component.extend({
   compiledTemplateName: null,
 
-  style: computed("compileError", function() {
-    let style;
-    if (this.get("compileError")) {
-      style = `outline: 5px solid red;`;
-    } else {
-      style = `outline: 5px solid black;`;
-    }
-
-    return htmlSafe(style);
-  }),
-
   compileTemplate: observer("templateHbs", function() {
     compileCount++;
     let templateHbs = this.get("templateHbs");
@@ -34,14 +23,20 @@ export default Component.extend({
       return;
     }
 
+    // use a unique template name each time
     let templateName = `mytemplate${compileCount}`;
     getOwner(this).register(`template:${templateName}`, template);
     this.set("compiledTemplateName", templateName);
   }),
 
-  actions: {
-    hi() {
-      alert("hi");
+  style: computed("compileError", function() {
+    let style;
+    if (this.get("compileError")) {
+      style = `outline: 5px solid red;`;
+    } else {
+      style = `outline: 5px solid black;`;
     }
-  }
+
+    return htmlSafe(style);
+  }),
 });

@@ -3,6 +3,8 @@
 {{#if compiledTemplateName}}
   <h1>{{compiledTemplateName}}</h1>
   <div style={{style}}>
+
+    {{! render the unique compiled template name as a partial}}
     {{partial compiledTemplateName}}
   </div>
 {{/if}}

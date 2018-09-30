@@ -1,0 +1,18 @@
+<h1>LifeCycle Player</h1>
+{{events.length}} Events.<br>
+Event Index: {{eventIndex}}<br>
+Current event:
+{{#if currentEvent}}
+  {{currentEvent.componentName}}: {{currentEvent.eventName}}
+{{else}}
+<em>none</em>
+{{/if}}
+<br>
+<button {{action 'playOne'}}>Play 1</button>
+<ul>
+  {{#each components as as |component|}}
+    <li>
+      {{lifecycle-player-component component=component currentEvent=currentEvent}}
+    </li>
+  {{/each}}
+</ul>
